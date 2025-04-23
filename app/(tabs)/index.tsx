@@ -1,4 +1,4 @@
-import { View, StyleSheet, ScrollView } from 'react-native';
+import { View, StyleSheet, ScrollView, Text } from 'react-native';
 import HeroBanner from '../../components/HeroBanner';
 import Header from '../../components/Header';
 import SportPass from '../../components/SportPass';
@@ -16,12 +16,25 @@ export default function HomePage() {
       {/* Header sport + profil */}
       <Header />
 
-      {/* Composants de la page */}
+      {/* Passe sportif */}
       <SportPass />
+
+      {/* Calendrier de la semaine */}
       <WeekCalendar />
-      <WidgetTodayWorkout />
-      <WidgetTrainingPath />
-      <WidgetCustomTraining />
+
+      {/* Section des widgets */}
+      <View style={styles.programWrapper}>
+        <Text style={styles.sectionTitle}>Your Program</Text>
+
+        {/* Grand widget en haut */}
+        <WidgetTodayWorkout style={styles.fullWidthBox} />
+
+        {/* Deux petits widgets en ligne */}
+        <View style={styles.row}>
+          <WidgetTrainingPath style={styles.halfBox} />
+          <WidgetCustomTraining style={styles.halfBox} />
+        </View>
+      </View>
     </ScrollView>
   );
 }
@@ -34,4 +47,31 @@ const styles = StyleSheet.create({
   scrollContent: {
     paddingBottom: 40,
   },
+  programWrapper: {
+    marginHorizontal: 20,
+    marginBottom: 20,
+  },
+  sectionTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 16,
+  },
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  fullWidthBox: {
+    width: '100%',
+    borderRadius: 20,
+    marginBottom: 16,
+    paddingVertical: 35,
+  },
+  halfBox: {
+    width: '90%',
+    borderRadius: 16,
+    minHeight: 120,
+    justifyContent: 'center',
+  },
+   
 });
+

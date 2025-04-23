@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
     padding: 16,
     marginHorizontal: 20,
     marginTop: 20,
+    paddingVertical: 40,
   },
   title: {
     color: 'white',
